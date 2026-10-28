@@ -25,6 +25,9 @@ iconutil -c icns build/AppIcon.iconset -o build/AppIcon.icns
 
 rm -rf "$app"
 osacompile -o "$app" main.applescript
+# osacompile names the executable "applet", which is what macOS shows in Login Items and Privacy & Security.
+mv "$app/Contents/MacOS/applet" "$app/Contents/MacOS/$app_name"
+plutil -replace CFBundleExecutable -string "$app_name" "$app/Contents/Info.plist"
 sed -e "s|__BACKUP_DIR__|$backup_dir|" -e "s|__KEEP__|$keep|" prune-lightroom-backups.sh > "$app/Contents/Resources/prune-lightroom-backups.sh"
 chmod +x "$app/Contents/Resources/prune-lightroom-backups.sh"
 cp build/AppIcon.icns "$app/Contents/Resources/applet.icns"

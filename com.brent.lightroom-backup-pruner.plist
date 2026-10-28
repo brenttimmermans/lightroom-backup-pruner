@@ -4,7 +4,8 @@
 <dict>
   <key>Label</key><string>com.brent.lightroom-backup-pruner</string>
   <key>ProgramArguments</key>
-  <array><string>/Applications/Lightroom Backup Pruner.app/Contents/MacOS/applet</string></array>
+  <array><string>/Applications/Lightroom Backup Pruner.app/Contents/MacOS/Lightroom Backup Pruner</string></array>
+  <key>AssociatedBundleIdentifiers</key><string>com.brent.lightroom-backup-pruner</string>
   <key>WatchPaths</key>
   <array><string>__BACKUP_DIR__</string></array>
   <key>RunAtLoad</key><true/>
