@@ -5,7 +5,7 @@ keep=__KEEP__
 exec >>"$HOME/Library/Logs/lightroom-backup-pruner.log" 2>&1
 
 if ! ls "$backup_dir" >/dev/null; then
-  echo "$(date '+%F %T') cannot read $backup_dir (grant Lightroom Backup Pruner Full Disk Access?)"
+  echo "$(date '+%F %T') cannot read $backup_dir"
   exit 1
 fi
 

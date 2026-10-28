@@ -25,7 +25,7 @@ At the top of `build.sh`:
 
 ## Log
 
-Deletions and errors go to `~/Library/Logs/lightroom-backup-pruner.log`. If it says `cannot read`, give Lightroom Backup Pruner Full Disk Access in System Settings → Privacy & Security.
+Deletions and errors go to `~/Library/Logs/lightroom-backup-pruner.log`. A `cannot read` line comes right after the reason from `ls`. If the backup folder was moved or renamed, update `backup_dir` and run `./build.sh` again.
 
 ## Uninstall
 
