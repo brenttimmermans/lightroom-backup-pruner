@@ -1,6 +1,6 @@
-<p align="center"><img src="icon.png" width="128" alt="LR Backup Pruner icon"></p>
+<p align="center"><img src="icon.png" width="128" alt="Lightroom Backup Pruner icon"></p>
 
-# LR Backup Pruner
+# Lightroom Backup Pruner
 
 Keeps only the newest Lightroom Classic catalog backups in a folder, so a synced drive doesn't fill up with old ones.
 
@@ -12,7 +12,7 @@ A LaunchAgent watches the backup folder. When Lightroom adds a backup, a tiny ba
 ./build.sh
 ```
 
-Builds `/Applications/LR Backup Pruner.app` and loads the LaunchAgent. Run it again after any change.
+Builds `/Applications/Lightroom Backup Pruner.app` and loads the LaunchAgent. Run it again after any change.
 
 ## Settings
 
@@ -20,17 +20,17 @@ At the top of `build.sh`:
 
 | Setting | Default |
 |---|---|
-| `backup_dir` | `~/Library/CloudStorage/ProtonDrive-*-folder/lr-backups` |
+| `backup_dir` | `~/Library/CloudStorage/ProtonDrive-*-folder/lightroom-backups` |
 | `keep` | `3` |
 
 ## Log
 
-Deletions and errors go to `~/Library/Logs/lr-backup-pruner.log`. If it says `cannot read`, give LR Backup Pruner Full Disk Access in System Settings → Privacy & Security.
+Deletions and errors go to `~/Library/Logs/lightroom-backup-pruner.log`. If it says `cannot read`, give Lightroom Backup Pruner Full Disk Access in System Settings → Privacy & Security.
 
 ## Uninstall
 
 ```sh
-launchctl bootout gui/$(id -u)/com.brent.lr-backup-pruner
-rm ~/Library/LaunchAgents/com.brent.lr-backup-pruner.plist
-rm -rf "/Applications/LR Backup Pruner.app"
+launchctl bootout gui/$(id -u)/com.brent.lightroom-backup-pruner
+rm ~/Library/LaunchAgents/com.brent.lightroom-backup-pruner.plist
+rm -rf "/Applications/Lightroom Backup Pruner.app"
 ```

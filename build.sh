@@ -2,12 +2,12 @@
 set -euo pipefail
 cd "${0:A:h}"
 
-backup_dir=(~/Library/CloudStorage/ProtonDrive-*-folder/lr-backups(N/))
+backup_dir=(~/Library/CloudStorage/ProtonDrive-*-folder/lightroom-backups(N/))
 keep=3
 
-app_name="LR Backup Pruner"
+app_name="Lightroom Backup Pruner"
 app="/Applications/$app_name.app"
-label="com.brent.lr-backup-pruner"
+label="com.brent.lightroom-backup-pruner"
 agent="$HOME/Library/LaunchAgents/$label.plist"
 
 if (( ${#backup_dir} != 1 )); then
@@ -25,8 +25,8 @@ iconutil -c icns build/AppIcon.iconset -o build/AppIcon.icns
 
 rm -rf "$app"
 osacompile -o "$app" main.applescript
-sed -e "s|__BACKUP_DIR__|$backup_dir|" -e "s|__KEEP__|$keep|" prune-lr-backups.sh > "$app/Contents/Resources/prune-lr-backups.sh"
-chmod +x "$app/Contents/Resources/prune-lr-backups.sh"
+sed -e "s|__BACKUP_DIR__|$backup_dir|" -e "s|__KEEP__|$keep|" prune-lightroom-backups.sh > "$app/Contents/Resources/prune-lightroom-backups.sh"
+chmod +x "$app/Contents/Resources/prune-lightroom-backups.sh"
 cp build/AppIcon.icns "$app/Contents/Resources/applet.icns"
 rm -f "$app/Contents/Resources/Assets.car"
 plutil -remove CFBundleIconName "$app/Contents/Info.plist" 2>/dev/null || true
